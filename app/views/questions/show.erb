@@ -1,0 +1,23 @@
+
+<ol><%= @survey.title %>
+  <li><%= @questions[0].prompt %></li>
+    <form id="answer_question_form" method="get" action="/questions">
+      <input type="radio" name="question[choice]"> <%= @choice[0].text %><br>
+      <input type="radio" name="question[choice]"> <%= @choice[1].text %><br>
+      <input type="radio" name="question[choice]"> <%= @choice[2].text %>
+    </form>
+  <li><%= @questions[1].prompt %></li>
+    <form id="answer_question_form" method="get" action="/questions">
+      <input type="radio" name="question[choice]"> <%= @choice[0].text %><br>
+      <input type="radio" name="question[choice]"> <%= @choice[1].text %><br>
+      <input type="radio" name="question[choice]"> <%= @choice[2].text %>
+    </form>
+  <li><%= @questions[3].prompt %></li>
+    <form id="answer_question_form" method="get" action="/questions">
+      <input type="radio" name="question[choice]"> <%= @choice[0].text %><br>
+      <input type="radio" name="question[choice]"> <%= @choice[1].text %><br>
+      <input type="radio" name="question[choice]"> <%= @choice[2].text %>
+    </form>
+</ol>
+
+<input type="submit" value="Submit" class="button">
