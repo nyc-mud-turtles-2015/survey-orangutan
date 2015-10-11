@@ -1,6 +1,6 @@
 <ul class="available-surveys">
 <% @surveys.each do |survey| %>
-  <li><a href="<%= "/surveys/#{survey.id}" %>">
+  <li><a href="<%= "/surveys/#{survey.id}/responses/new" %>">
     <%= survey.title %></a> <span>(<%= pluralize(survey.questions.size, 'questions') %>)</span>
     </li>
 <% end %>
