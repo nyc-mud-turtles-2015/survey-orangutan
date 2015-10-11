@@ -60,7 +60,7 @@ def random_q_and_a
     [ lambda { "What's your favorite app for #{Faker::Hacker.ingverb} #{Faker::Hacker.abbreviation}?" },
       lambda { Faker::App.name } ],
     [ lambda { "What's your favorite movie starring #{Faker::Name.name}?" },
-      lambda { "#{Faker::Book.title}  + " " + #{Faker::Number.between(2,5)}" } ]
+      lambda { "#{Faker::Book.title} #{Faker::Number.between(2,5)}" } ]
   ].sample
   question = q_and_a_generator[0].call
   answers = (2..4).map { q_and_a_generator[1].call }
