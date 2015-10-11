@@ -8,6 +8,10 @@ get '/surveys/:id/complete' do
   erb :'surveys/complete'
 end
 
+get '/surveys/new' do
+  erb :'surveys/new'
+end
+
 get '/surveys/:id' do
   @survey = Survey.find(params[:id])
   erb :'surveys/show'
