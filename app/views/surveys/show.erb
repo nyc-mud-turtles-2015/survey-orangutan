@@ -1,13 +1,23 @@
-<h2><%= @survey.title %></h2>
-<form action="<%= "/survey/#{@survey.id}/responses" %>" class="post">
+<h2><%= "Results for \"#{@survey.title}\"" %></h2>
+<div class="results">
+<% max = @survey.top_choice_count %>
 <% @survey.questions.order(:created_at).includes(:choices).each do |question| %>
   <div class="question">
   <p><%= question.prompt %></p>
-  <% question.choices.each do |choice| %>
-  <label><input type="radio" name="<%= "q_#{question.id}" %>" value="<%= "c_#{choice.id}" %>">
-    <%= choice.text %>
-  </label>
+  <% choices = question.choices.includes(:answers) %>
+  <div class="legend">
+  <% choices.each do |choice| %>
+    <div>
+      <%= choice.text %>
+    </div>
   <% end %>
+  </div>
+  <div class="graph">
+  <% choices.each do |choice| %>
+    <div class="bar" style="<%= "width: #{choice.answers.size.to_f / max * 100}%" %>">
+        <%= choice.answers.size %>
+    </div>
+  <% end %>
+  </div>
 <% end %>
-<input type="submit" value="Submit">
 </form>

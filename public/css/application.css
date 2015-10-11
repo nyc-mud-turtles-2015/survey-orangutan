@@ -65,3 +65,51 @@ code {
     margin-left: -1em;
     overflow: auto;
 }
+
+/*
+"#009E73", "#e79f00", "#9ad0f3", "#0072B2", "#D55E00"
+*/
+
+
+.legend div {
+    font-size: 18px;
+    padding: 0;
+    margin: 0;
+    line-height: 1.2;
+}
+
+.legend div:before {
+    content: " ";
+    display: inline-block;
+    height: 12px;
+    width: 12px;
+    border: 1px solid black;
+}
+
+.graph .bar {
+    color: white;
+    height: 14px;
+    font-size: 14px;
+    line-height: 14px;
+    padding: 0 0 0 4px;
+}
+
+.graph .bar:nth-child(1), .legend div:nth-child(1):before {
+    background: #009E73;
+}
+.graph .bar:nth-child(2), .legend div:nth-child(2):before {
+    background: #e79f00;
+}
+
+.graph .bar:nth-child(3), .legend div:nth-child(3):before {
+    background: #9ad0f3;
+}
+
+.graph .bar:nth-child(4), .legend div:nth-child(4):before {
+    background: #0072B2;
+}
+
+.graph .bar:nth-child(5), .legend div:nth-child(5):before {
+    background: #D55E00;
+}
+
