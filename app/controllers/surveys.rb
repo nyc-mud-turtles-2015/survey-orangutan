@@ -1,5 +1,6 @@
 get '/surveys' do
-  @surveys = Survey.order(created_at: :desc).includes(:questions)
+  user = User.first # placeholder until auth is ready
+  @surveys = user.available_surveys
   erb :'surveys/index'
 end
 
@@ -13,7 +14,7 @@ get '/surveys/new' do
 end
 
 post '/surveys' do
-  user = User.first #temporary
+  user = User.first # placeholder until auth is ready
   survey = Survey.new(author: user, title: params[:title])
   if survey.save
     redirect "/surveys/#{survey.id}/questions/new"
