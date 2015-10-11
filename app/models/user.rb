@@ -9,6 +9,13 @@ class User < ActiveRecord::Base
 
   validates :name, :password_hash, presence: true
 
+  def available_surveys
+    # exclude surveys with no questions and already taken surveys
+    Survey.includes(:questions)
+          .where.not(questions: {id: nil}, id: self.surveys_taken.pluck(:id))
+          .order(created_at: :desc)
+  end
+
   def password
     @password ||= Password.new(password_hash)
   end
