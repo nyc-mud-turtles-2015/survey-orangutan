@@ -20,7 +20,7 @@ post '/surveys/:id/responses' do
     @errors << response.errors.full_messages
   end
   if @errors.empty?
-    redirect "surveys/#{params[:id]}/complete"
+    redirect "/surveys/#{params[:id]}/complete"
   else
     erb "/surveys/#{params[:id]}/responses/new"
   end
