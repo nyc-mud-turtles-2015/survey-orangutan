@@ -1,10 +1,10 @@
 <h2><%= @survey.title %></h2>
-<form action="<%= "/survey/#{@survey.id}/responses" %>" class="post">
+<form action="<%= "/surveys/#{@survey.id}/responses" %>" method="post">
 <% @survey.questions.order(:created_at).includes(:choices).each do |question| %>
   <div class="question">
   <p><%= question.prompt %></p>
   <% question.choices.each do |choice| %>
-  <label><input type="radio" name="<%= "q_#{question.id}" %>" value="<%= "c_#{choice.id}" %>">
+  <label><input type="radio" name="<%= "q_#{question.id}" %>" value="<%= "#{choice.id}" %>">
     <%= choice.text %>
   </label>
   <% end %>
