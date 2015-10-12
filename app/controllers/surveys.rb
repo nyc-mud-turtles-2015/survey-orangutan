@@ -1,11 +1,11 @@
 get '/surveys' do
-  user = User.first # placeholder until auth is ready
+  user = current_user
   @surveys = user.available_surveys
   erb :'surveys/index'
 end
 
 get '/surveys/:id/complete' do
-  @survey = Survey.find(params[:id])
+  @survey = Survey.find_by(id: params[:id])
   erb :'surveys/complete'
 end
 
@@ -14,7 +14,7 @@ get '/surveys/new' do
 end
 
 post '/surveys' do
-  user = User.first # placeholder until auth is ready
+  user = current_user
   survey = Survey.new(author: user, title: params[:title])
   if survey.save
     redirect "/surveys/#{survey.id}/questions/new"
@@ -25,6 +25,6 @@ post '/surveys' do
 end
 
 get '/surveys/:id' do
-  @survey = Survey.find(params[:id])
+  @survey = Survey.find_by(id: params[:id])
   erb :'surveys/show'
 end
