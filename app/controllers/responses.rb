@@ -4,7 +4,7 @@ get '/surveys/:id/responses/new' do
 end
 
 post '/surveys/:id/responses' do
-  user = User.first # placeholder until auth is ready
+  user = current_user
   survey = Survey.find(params[:id])
   response = Response.new(user: user, survey: survey)
   @errors = []
@@ -13,15 +13,15 @@ post '/surveys/:id/responses' do
       choice = Choice.find(params["q_#{question.id}"])
       answer = Answer.new(response: response, choice: choice)
       if !answer.save
-        @errors << answer.errors.full_messages
+        @errors += answer.errors.full_messages
       end
     end
   else
-    @errors << response.errors.full_messages
+    @errors += response.errors.full_messages
   end
   if @errors.empty?
     redirect "/surveys/#{params[:id]}/complete"
   else
-    erb "/surveys/#{params[:id]}/responses/new"
+    erb :"responses/new"
   end
 end
