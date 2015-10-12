@@ -15,10 +15,15 @@
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
   <script src="/js/application.js"></script>
 
-  <title></title>
+  <title>Survey Orangatun</title>
 </head>
 <body>
 <div id="content">
+
+  <% if current_user %>
+    <h5><a href="/logout">Log Out</a></h5>
+  <% end %>
+
   <%= yield %>
 </div>
 </body>
