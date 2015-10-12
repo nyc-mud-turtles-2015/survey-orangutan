@@ -1,10 +1,5 @@
 <h1>Log into Survey Orangutan to take or create a survey!</h1>
   <form method="post" action="/login">
-    <label for="name">Name: </label>
-    <input type="text" name="user[name]"/>
-    <br>
-    <label for="password">Password: </label>
-    <input type="password" name="user[password]"/>
-    <br>
+    <%= erb :'/partials/_login_signup' %>
     <input type="submit" value="Log in!"/>
   </form>
