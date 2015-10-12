@@ -7,14 +7,14 @@ get '/login' do
 end
 
 post '/login' do
-  "hello world"
-  # user = User.find_by(params[:user][:name])
-  #   if user.save
-    puts "be cool"
-    # redirect '/'
-  # else
-  #   puts "be uncool"
-    # redirect '/'
-  # end
+  user = User.find_by(params[:user][:name])
+    if user.save
+      "HELLO WORLD"
+  else
+    "GOODBYE CRUEL WORLD"
+  end
 end
 
+get '/signup' do
+  erb :'users/signup'
+end
