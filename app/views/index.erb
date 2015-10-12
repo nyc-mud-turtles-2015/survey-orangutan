@@ -1,0 +1,8 @@
+<h1>Survey Orangatun</h1>
+<% if current_user %>
+  <h5><a href="/surveys">Take a survey</a></h5>
+  <h3>or<h3>
+  <h5><a href="/surveys/new">Create a survey</a></h5>
+<% else %>
+  <h5><a href="/login">Login</a> | <a href="/signup">Sign up</a></h3>
+<% end %>
