@@ -5,7 +5,7 @@ get '/surveys' do
 end
 
 get '/surveys/:id/complete' do
-  @survey = Survey.find(params[:id])
+  @survey = Survey.find_by(id: params[:id])
   erb :'surveys/complete'
 end
 
@@ -25,6 +25,6 @@ post '/surveys' do
 end
 
 get '/surveys/:id' do
-  @survey = Survey.find(params[:id])
+  @survey = Survey.find_by(id: params[:id])
   erb :'surveys/show'
 end
