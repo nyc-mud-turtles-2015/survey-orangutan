@@ -8,7 +8,7 @@ end
 
 post '/surveys/:id/questions' do
   survey = Survey.find_by(id: params[:id])
-  question = Question.new(survey: @survey, prompt: params[:prompt])
+  question = Question.new(survey: survey, prompt: params[:prompt])
   choices = []
   errors = []
   if question.save
@@ -31,6 +31,7 @@ post '/surveys/:id/questions' do
   if !errors.empty?
     choices.each { |choice| choice.destroy }
     question.destroy
+    p errors
     redirect :"/surveys/#{survey.id}/questions/new?#{params.to_query}"
   else
     redirect :"/surveys/#{survey.id}/questions/new"
