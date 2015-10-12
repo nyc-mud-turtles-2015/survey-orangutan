@@ -1,14 +1,35 @@
-<h3>Add questions and choices!</h3>
+<h2>Add questions to "<%= @survey.title %>"</h2>
 
-<form action="/posts" method="post">
-  <label for="title">Title of Survey:</label>
-  <input type="text" id="title" name="survey[title]"></input>
-  <label for="prompt_input">Enter Question:</label>
-  <input type="text" id="prompt_input" name="question[prompt]"></input>
-  <label for="choice_input">Enter Choices:</label>
-  <input type="text" id="choice_input" name="question[prompt]"></input>
-  <input type="text" id="choice_input" name="question[prompt]"></input>
-  <input type="text" id="choice_input" name="question[prompt]"></input>
+  <% if !@errors.empty? %>
+  <ul class="errors">
+    <% @errors.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+  </ul>
+  <% end %>
 
-  <input type="submit" value="Post Survey"></input>
+<form action="<%= "/surveys/#{@survey.id}/questions" %>" method="post">
+  <label for="prompt_input">Question: </label>
+  <input type="text" id="prompt_input" name="prompt" value="<%= params[:prompt]%>"></input>
+  <% params[:choices] = {} if !params[:choices] %>
+  <label for="choice_input">Choices: </label>
+  <input type="text" id="choice_input" name="choices[1]" value="<%= "#{params[:choices]["1"]}" %>"></input>
+  <input type="text" id="choice_input" name="choices[2]" value="<%= "#{params[:choices]["2"]}" %>"></input>
+  <input type="text" id="choice_input" name="choices[3]" value="<%= "#{params[:choices]["3"]}" %>"></input>
+  <input type="text" id="choice_input" name="choices[4]" value="<%= "#{params[:choices]["4"]}" %>"></input>
+
+  <input type="submit" value="Add Question"></input>
 </form>
+<a href="/">Done</a>
+<% @survey.questions.order(:created_at).includes(:choices).each do |question| %>
+  <div class="question">
+  <p><%= question.prompt %></p>
+  <% choices = question.choices.includes(:answers) %>
+  <div class="choice-list">
+  <% choices.each do |choice| %>
+    <div>
+      <%= choice.text %>
+    </div>
+  <% end %>
+  </div>
+<% end %>
