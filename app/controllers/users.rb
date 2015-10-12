@@ -7,11 +7,12 @@ get '/login' do
 end
 
 post '/login' do
-  user = User.find_by(params[:user][:name])
-    if user.save
-      "HELLO WORLD"
+  user = User.find_by(name: params[:user][:name])
+  if user && user.password == params[:user][:password]
+    session[:user_id] = user.id
+    redirect '/'
   else
-    "GOODBYE CRUEL WORLD"
+    redirect '/login'
   end
 end
 
