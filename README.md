@@ -1,30 +1,27 @@
-> **Note**: This branch (master) contains a skeleton without any app code, perfect for creating a _new_ application or challenge. If you're looking for an example app built with this skeleton, take a look at the [example](/../..//tree/example) branch which includes basic CRUD and RSpec tests.
+# Welcome to Survey Orangutan
 
-### Purpose
-The Sinatra Skeleton:
+### Team Members:
+- Amy Liao
+- Domingo Moronta
+- Matt Walsh
+- Rebecca Kleinberg
 
-1. Provides a foundation for building challenges or creating a new Sinatra application.
-2. Demonstrates a reasonable set of practices around building Sinatra applications.
-3. Eases the transition to Rails for Dev Bootcamp students
+### MVP
 
-### Quickstart
+The MVP for Survey Orangutan was an application that would allow a signed up memeber to take and create surveys. The author of the survey will also have access to the responses of the survey answered by users.
 
-1.  `bundle install`
-2.  `shotgun config.ru`
+### Trello Board & Wireframe
 
-As needed, create models & migrations with the `rake` tasks:
+Our [Trello][] board with images of the wireframes.
 
-```
-rake generate:migration  # Create an empty migration in db/migrate, e.g., rake generate:migration NAME=create_tasks
-rake generate:model      # Create an empty model in app/models, e.g., rake generate:model NAME=User
-```
+### Team Dynamic and Git workflow
 
-### Contributing
+The Git [Workflow][] was simple: each member would take on a task via [Trello][] and when it is completed, move it to the 'Completed' section. The Git master would review the pushed task and merge it if it was in line with the task. 
 
-We would love for you to help make the skeleton more awesome, There are three ways to contribute:
+In addition to Trello, team Survey Orangutan used [Slack][] as the main form of communication throughout the project. This allowed the team to be in constant communication with each other when working remotely. Every member contributed to the project and worked great together by consistantly communicating the status of the project with each other. The team leaned on each other for helped and guidence which contributed to the sucess fo the project.
 
-1. Ask for a bug fix or enhancement!
-2. Submit a pull request for a bug fix or enhancement!
-3. Code review an open pull request!
+### Resources:
 
-Be prepared to give and receive specific, actionable, and kind feedback!
+[Trello]: https://trello.com/b/tki3X0l1/a-dbc-production
+[Workflow]: https://github.com/nyc-mud-turtles-2015/survey-orangutan/issues/6
+[Slack]: https://surveyorangutan.slack.com/messages/general/
