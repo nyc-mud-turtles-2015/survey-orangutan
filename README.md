@@ -20,7 +20,6 @@ The Git [Workflow][] was simple: each member would take on a task via [Trello][]
 
 In addition to Trello, team Survey Orangutan used [Slack][] as the main form of communication throughout the project. This allowed the team to be in constant communication with each other when working remotely. Every member contributed to the project and worked great together by consistantly communicating the status of the project with each other. The team leaned on each other for helped and guidence which contributed to the sucess fo the project.
 
-### Resources:
 
 [Trello]: https://trello.com/b/tki3X0l1/a-dbc-production
 [Workflow]: https://github.com/nyc-mud-turtles-2015/survey-orangutan/issues/6
