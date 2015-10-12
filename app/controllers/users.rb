@@ -30,6 +30,10 @@ post '/signup' do
   end
 end
 
+get '/profile' do
+  erb :'users/profile'
+end
+
 get '/logout' do
   session.clear
   redirect '/'
